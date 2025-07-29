@@ -1,0 +1,291 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f0f2f5;
+  /* Un fondo claro general */
+  display: flex;
+  flex-direction: column;
+  /* Asegura que los elementos se apilen verticalmente */
+  min-height: 100vh;
+  /* Ocupa al menos el 100% de la altura de la ventana */
+  margin: 0;
+  padding: 0;
+  /* Eliminar padding del body para evitar espacios no deseados */
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  /* Borde inferior sutil */
+  padding: 1rem 2rem;
+}
+
+.main-content-wrapper {
+  /* Nuevo contenedor para el contenido principal */
+  flex-grow: 1;
+  /* Permite que este contenedor ocupe todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  /* Asegura que el contenido se apile verticalmente */
+  justify-content: center;
+  /* Centra el contenido principal verticalmente */
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  /* Ancho máximo para el diseño de dos columnas */
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  /* Asegura que los bordes redondeados se apliquen a todo */
+  min-height: 600px;
+  /* Altura mínima para el contenedor */
+  margin-left: auto;
+  /* Centrar horizontalmente */
+  margin-right: auto;
+  /* Centrar horizontalmente */
+  padding-top: 20px;
+  /* Añadir padding vertical para espaciado */
+  padding-bottom: 20px;
+  /* Añadir padding vertical para espaciado */
+}
+
+.login-column {
+  flex: 1;
+  /* Ocupa el 50% del ancho */
+  background-color: rgba(255, 255, 255, 0.95);
+  /* Fondo casi opaco para el formulario */
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.illustration-column {
+  flex: 1;
+  background-color: #e0f2fe;
+  background-image: url("../img/nomina_login.jpeg");
+  background-size: cover;
+  /* Rellena todo el contenedor */
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  /* Altura mínima en dispositivos móviles */
+  height: 100%;
+  display: flex;
+  height: 80vh;
+}
+
+/* Altura mínima mayor para pantallas más grandes */
+@media (min-width: 768px) {
+  .illustration-column {
+    min-height: 500px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-field {
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.login-button {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.google-button {
+  background-color: white;
+  color: #4a4a4a;
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.google-button:hover {
+  background-color: #f3f4f6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.link-text {
+  color: #6366f1;
+  transition: color 0.2s ease;
+}
+
+.link-text:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Estilos para el icono de ojo */
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #9ca3af;
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+/* Estilos para el spinner */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gemini-button {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 1.5rem;
+}
+
+.gemini-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.gemini-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.tip-box {
+  background-color: rgba(243, 244, 246, 0.8);
+  border-left: 4px solid #10b981;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #1f2937;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.cta-button {
+  /* Added from index.html */
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  /* Degradado morado */
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cta-button:hover {
+  /* Added from index.html */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.secondary-button {
+  /* Added from index.html */
+  background-color: transparent;
+  color: #6366f1;
+  border: 1px solid #6366f1;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.secondary-button:hover {
+  /* Added from index.html */
+  background-color: #6366f1;
+  color: white;
+}
+
+/* Responsive adjustments for navbar */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+    /* Oculta los enlaces de navegación en móvil */
+  }
+
+  .navbar-mobile-menu {
+    display: flex;
+    /* Muestra el icono de menú en móvil */
+  }
+}

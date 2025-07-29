@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuNomina - Panel de Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Incluye Chart.js desde un CDN para los gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar flex items-center justify-between">
+        <div class="flex items-center">
+            <!-- Asumiendo que 'img/icon01.jpeg' existe -->
+            <img src="img/icon01.jpeg" alt="Logo Tu Nómina" class="h-20">
+        </div>
+        <div class="navbar-links hidden md:flex items-center space-x-6">
+            <a href="dashboard.html"
+                class="text-gray-600 hover:text-gray-900 font-medium bg-blue-50 px-3 py-2 rounded-lg">Panel
+                Principal</a>
+            <a href="nomina.html" class="text-gray-600 hover:text-gray-900 font-medium">Procesar Nómina</a>
+            <!-- Botón de Cerrar Sesión -->
+            <a href="index.html" class="cta-button">Cerrar Sesión</a>
+        </div>
+        <div class="md:hidden navbar-mobile-menu">
+            <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="dashboard-main-content">
+        <div class="dashboard-section text-center">
+            <h1 id="welcomeMessage" class="text-4xl font-extrabold text-gray-900 mb-4 sm:text-5xl lg:text-6xl">
+                ¡Bienvenido de nuevo!</h1>
+            <p class="text-lg text-gray-700">Aquí tienes un resumen de la actividad de tu nómina.</p>
+        </div>
+
+        <!-- Sección de Estadísticas Rápidas -->
+        <div class="dashboard-section">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Estadísticas Rápidas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stat-card">
+                    <i class="fas fa-users icon"></i>
+                    <div>
+                        <div class="value">15</div>
+                        <div class="label">Empleados Activos</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-money-check-alt icon"></i>
+                    <div>
+                        <div class="value">COP 25.000.000</div>
+                        <div class="label">Total Salarios Mes Actual</div>
+                    </div>
+                </div>
+                <!-- Vacío para mantener el grid, puedes agregar otra estadística si lo deseas -->
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div>
+                        <div class="value">Próx. Pago: 30 Jul</div>
+                        <div class="label">Fecha Próxima Nómina</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nueva Sección para el Gráfico de Torta de Salario Neto -->
+        <div class="dashboard-section">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Distribución de Salario Neto por Empleado</h2>
+            <div class="w-full md:w-3/4 lg:w-2/3 mx-auto p-4">
+                <canvas id="netSalaryPieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Sección de Consejos de Nómina con Gemini -->
+        <div class="dashboard-section">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Consejo del Día</h2>
+            <p class="text-gray-700 mb-4">Obtén un consejo útil sobre nómina o aspectos laborales en Colombia,
+                potenciado por IA.</p>
+            <button id="getTipButton" class="gemini-button flex items-center justify-center mx-auto">
+                ✨ Obtener Consejo de Nómina ✨
+            </button>
+            <div id="dailyTip" class="tip-box hidden text-left mt-4"></div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="img/icon.svg" alt="Logo Tu Nómina" class="h-20 mb-4">
+                    <p class="text-sm">TuNomina te ayuda a simplificar la gestión de nóminas y empleados para tu
+                        empresa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegación</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="nomina.html" class="hover:text-white transition-colors duration-200">Procesamiento
+                                de Nómina</a></li>
+                        <li><a href="login.html" class="hover:text-white transition-colors duration-200">Iniciar
+                                Sesión</a></li>
+
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-envelope mr-2"></i> info@tunomina.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +57 1 234 5678</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Calle 123 #45-67, Soacha, Cundinamarca, Colombia
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                &copy; 2025 TuNomina. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript/dashboard.js"></script>
+</body>
+
+</html>

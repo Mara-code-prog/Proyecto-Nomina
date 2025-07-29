@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Nómina - Procesamiento de Nómina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/nomina.css">
+</head>
+
+<body>
+    <nav class="navbar flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="img/icon01.jpeg" alt="Logo Tu Nómina" class="h-20">
+        </div>
+        <div class="navbar-links hidden md:flex items-center space-x-6">
+            <a href="dashboard.html"
+                class="text-gray-600 hover:text-gray-900 font-medium bg-blue-50 px-3 py-2 rounded-lg">Panel
+                Principal</a>
+            <a href="nomina.html" class="text-gray-600 hover:text-gray-900 font-medium">Procesar Nómina</a>
+            <!-- Botón de Cerrar Sesión -->
+            <a href="index.html" class="cta-button">Cerrar Sesión</a>
+        </div>
+        <div class="md:hidden navbar-mobile-menu">
+            <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+
+    <div class="main-content-wrapper">
+        <div class="main-processing-container">
+            <div class="form-column">
+                <div class="w-full text-center mb-8">
+                    <img src="img/icon01.jpeg" alt="Logo Tu Nómina" class="mx-auto mb-4 rounded-lg"
+                        style="width:150px; height:auto;">
+                    <h1 class="text-3xl font-bold text-gray-800">Procesamiento de Nómina</h1>
+                    <p class="text-gray-600">Calcula y gestiona las nóminas de tus empleados.</p>
+                </div>
+
+                <div id="message-box" class="hidden p-4 mb-4 text-sm rounded-lg w-full text-left" role="alert"></div>
+
+                <form id="payrollForm" class="w-full">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="employee"
+                                class="block text-gray-700 text-sm font-medium mb-2 text-left">Seleccionar
+                                Empleado</label>
+                            <select id="employee" name="employee" required class="select-field">
+                                <select id="employee" name="employee" required class="select-field">
+                                    <option value="">-- Cargando empleados... --</option>
+                                    <!-- Las opciones de empleados se cargarán aquí dinámicamente -->
+                                </select>
+                        </div>
+                        <div>
+                            <label for="periodType" class="block text-gray-700 text-sm font-medium mb-2 text-left">Tipo
+                                de Período</label>
+                            <select id="periodType" name="periodType" required class="select-field">
+                                <option value="">-- Selecciona el tipo --</option>
+                                <option value="Mensual">Mensual</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="startDate" class="block text-gray-700 text-sm font-medium mb-2 text-left">Fecha
+                                de Inicio</label>
+                            <input type="date" id="startDate" name="startDate" required class="input-field">
+                        </div>
+                        <div>
+                            <label for="endDate" class="block text-gray-700 text-sm font-medium mb-2 text-left">Fecha de
+                                Fin</label>
+                            <input type="date" id="endDate" name="endDate" required class="input-field">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="grossSalary"
+                                class="block text-gray-700 text-sm font-medium mb-2 text-left">Salario Bruto
+                                (COP)</label>
+                            <input type="number" id="grossSalary" name="grossSalary" placeholder="Ej: 2.000.000"
+                                step="0.01" required class="input-field">
+                        </div>
+                        <div>
+                            <label for="bonuses"
+                                class="block text-gray-700 text-sm font-medium mb-2 text-left">Bonificaciones
+                                (COP)</label>
+                            <input type="number" id="bonuses" name="bonuses" placeholder="Ej: 100.000" step="0.01"
+                                value="0.00" class="input-field">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="deductions" class="block text-gray-700 text-sm font-medium mb-2 text-left">Otras
+                                Deducciones (COP)</label>
+                            <input type="number" id="deductions" name="deductions" placeholder="Ej: 150.000" step="0.01"
+                                value="0.00" class="input-field">
+                        </div>
+                        <div>
+                            <label for="netSalaryDisplay"
+                                class="block text-gray-700 text-sm font-medium mb-2 text-left">Salario Neto Estimado
+                                (COP)</label>
+                            <input type="text" id="netSalaryDisplay" readonly disabled
+                                class="input-field bg-gray-100 text-gray-600 cursor-not-allowed">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="comments" class="block text-gray-700 text-sm font-medium mb-2 text-left">Comentarios
+                            (Opcional)</label>
+                        <textarea id="comments" name="comments" rows="3"
+                            placeholder="Añade cualquier comentario relevante aquí..."
+                            class="textarea-field"></textarea>
+                    </div>
+
+                    <button type="submit" class="process-button w-full text-center flex items-center justify-center"
+                        id="processButton">
+                        <i class="fas fa-calculator mr-2"></i> Procesar Nómina
+                    </button>
+                </form>
+            </div>
+
+            <div class="summary-column">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Resumen de Nómina</h2>
+                <div id="payrollSummary" class="w-full">
+                    <p class="text-gray-700">Aún no se ha procesado ninguna nómina.</p>
+                    <p class="text-sm text-gray-500 mt-2">Los detalles de la última nómina procesada aparecerán aquí.
+                    </p>
+                </div>
+
+                <div id="gemini-feature-container" class="text-center mt-8 w-full">
+                    <button id="getTipButton" class="gemini-button flex items-center justify-center mx-auto">
+                        ✨ Obtener Consejo de Nómina ✨
+                    </button>
+                    <div id="dailyTip" class="tip-box hidden text-left"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="img/icon.svg" alt="Logo Tu Nómina" class="h-20 mb-4">
+                    <p class="text-sm">TuNomina te ayuda a simplificar la gestión de nóminas y empleados para tu
+                        empresa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegación</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="nomina.html" class="hover:text-white transition-colors duration-200">Procesamiento
+                                de Nómina</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Beneficios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Informes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-envelope mr-2"></i> info@tunomina.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +57 1 234 5678</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Calle 123 #45-67, Soacha, Cundinamarca, Colombia
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                &copy; 2025 TuNomina. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    <script src="javascript/nomina.js"></script>
+</body>
+
+</html>

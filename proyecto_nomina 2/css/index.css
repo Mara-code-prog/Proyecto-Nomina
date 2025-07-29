@@ -1,0 +1,168 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffff;
+  /* Fondo blanco */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  /* Borde inferior sutil */
+  padding: 1rem 2rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /* Sombra suave */
+  position: sticky;
+  /* Sticky navbar */
+  top: 0;
+  z-index: 1000;
+  /* Asegura que esté por encima de otros elementos */
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  /* Permite que la sección crezca y ocupe el espacio disponible */
+  padding: 2rem;
+  background-color: #f8fafc;
+  /* Color de fondo suave para la sección principal */
+}
+
+.content-wrapper {
+  display: flex;
+  max-width: 1200px;
+  /* Ancho máximo para el contenido */
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.text-column {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* Alinear texto a la izquierda */
+  text-align: left;
+}
+
+.illustration-column {
+  flex: 1;
+  background-color: #e0f2fe;
+  /* Asegúrate de que esta imagen exista en tu carpeta 'img' */
+  background-image: url("../img/gestion_nomina.jpeg");
+  /* Placeholder si no tienes la imagen */
+  background-size: cover;
+  /* Rellena todo el contenedor */
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  /* Altura mínima en dispositivos móviles */
+  height: 100%;
+  display: flex;
+  height: 80vh;
+}
+
+/* Altura mínima mayor para pantallas más grandes */
+@media (min-width: 768px) {
+  .illustration-column {
+    min-height: 500px;
+    /* Aumenta la altura mínima en escritorio */
+  }
+}
+
+.cta-button {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  /* Degradado morado */
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #6366f1;
+  border: 1px solid #6366f1;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.secondary-button:hover {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    /* Apila las columnas en pantallas pequeñas */
+    min-height: unset;
+    border-radius: 1rem;
+  }
+
+  .text-column {
+    padding: 2rem;
+    align-items: center;
+    /* Centrar texto en móvil */
+    text-align: center;
+  }
+
+  .illustration-column {
+    order: -1;
+    /* Mueve la ilustración arriba en móvil */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+    /* Oculta los enlaces de navegación en móvil */
+  }
+
+  .navbar-mobile-menu {
+    display: flex;
+    /* Muestra el icono de menú en móvil */
+  }
+
+  .hero-section {
+    padding: 1rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-card i {
+    font-size: 2.5rem;
+  }
+}

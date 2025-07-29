@@ -1,0 +1,106 @@
+ body {
+     font-family: 'Inter', sans-serif;
+     background-color: #f0f2f5;
+     /* Un fondo claro general */
+     display: flex;
+     /* Permite un layout de columna */
+     flex-direction: column;
+     /* Apila los elementos verticalmente */
+     min-height: 100vh;
+     /* Ocupa al menos el 100% de la altura de la ventana */
+     margin: 0;
+     /* Elimina el margen predeterminado del body */
+     padding: 0;
+     /* Elimina el padding predeterminado del body */
+     box-sizing: border-box;
+     /* Asegura que el padding y el borde se incluyan en el tamaño total del elemento */
+ }
+
+ /* Estilos para la barra de navegación (Header) */
+ .navbar {
+     background-color: #ffffff;
+     border-bottom: 1px solid #e5e7eb;
+     /* Borde inferior sutil */
+     padding: 1rem 2rem;
+     /* Asegura que el navbar no se estire más allá del ancho máximo si se usa un contenedor */
+     width: 100%;
+ }
+
+ /* Estilos para el contenido principal, para que ocupe el espacio restante */
+ .main-content {
+     flex-grow: 1;
+     /* Permite que este contenedor ocupe todo el espacio disponible */
+     display: flex;
+     align-items: center;
+     /* Centra el formulario verticalmente */
+     justify-content: center;
+     /* Centra el formulario horizontalmente */
+     padding: 1rem;
+     /* Añade un padding alrededor del formulario */
+ }
+
+ /* Estilos para los botones de llamada a la acción (CTA) */
+ .cta-button {
+     background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+     /* Degradado morado */
+     color: white;
+     padding: 0.85rem 2rem;
+     border-radius: 0.75rem;
+     font-weight: 600;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+ }
+
+ .cta-button:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+ }
+
+ /* Estilos para botones secundarios (si se usan) */
+ .secondary-button {
+     background-color: transparent;
+     color: #6366f1;
+     border: 1px solid #6366f1;
+     padding: 0.85rem 2rem;
+     border-radius: 0.75rem;
+     font-weight: 600;
+     transition: background-color 0.2s ease, color 0.2s ease;
+ }
+
+ .secondary-button:hover {
+     background-color: #6366f1;
+     color: white;
+ }
+
+ /* Ajustes responsivos para la barra de navegación */
+ @media (max-width: 767px) {
+
+     /* Para pantallas más pequeñas que 768px */
+     .navbar {
+         padding: 1rem;
+     }
+
+     .navbar-links {
+         display: none;
+         /* Oculta los enlaces de navegación en móvil por defecto */
+     }
+
+     .navbar-mobile-menu {
+         display: block;
+         /* Muestra el icono de menú en móvil */
+     }
+ }
+
+ @media (min-width: 768px) {
+
+     /* Para pantallas de 768px o más grandes */
+     .navbar-links {
+         display: flex;
+         /* Muestra los enlaces de navegación en desktop */
+     }
+
+     .navbar-mobile-menu {
+         display: none;
+         /* Oculta el icono de menú en desktop */
+     }
+ }

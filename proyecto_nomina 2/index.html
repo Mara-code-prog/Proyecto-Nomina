@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuNomina - Gestión de Empleados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <nav class="navbar flex items-center justify-between">
+        <div class="flex items-center">
+            <!-- Asumiendo que 'img/icon01.jpeg' existe. Usamos un placeholder de Google si no. -->
+            <img src="img/icon01.jpeg"
+                onerror="this.onerror=null; this.src='https://placehold.co/80x80/ffffff/6366f1?text=Logo';"
+                alt="Logo Tu Nómina" class="h-20">
+        </div>
+        <div class="navbar-links hidden md:flex items-center space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium">Inicio</a>
+            <a href="login.html" class="text-indigo-600 hover:text-indigo-800 font-medium">Iniciar Sesión</a>
+            <a href="registro.html" class="cta-button">Empezar Ahora</a>
+        </div>
+        <div class="md:hidden navbar-mobile-menu">
+            <button id="mobileMenuButton" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Menú móvil desplegable -->
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-20 right-0 bg-white shadow-lg rounded-lg w-48 py-2 z-50">
+            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Inicio</a>
+            <a href="login.html" class="block px-4 py-2 text-indigo-600 hover:bg-gray-100">Iniciar Sesión</a>
+            <a href="registro.html" class="block px-4 py-2 cta-button mx-4 mt-2">Empezar Ahora</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="content-wrapper">
+            <div class="text-column">
+                <h1 class="text-4xl font-extrabold text-gray-900 leading-tight mb-4 sm:text-5xl lg:text-6xl">
+                    Gestión de Empleados <br class="hidden sm:inline"> y Nómina Simplificada
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg sm:text-xl">
+                    Optimiza tus procesos de nómina y recursos humanos con nuestra plataforma intuitiva y eficiente,
+                    diseñada para empresas modernas.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+                    <a href="registro.html" class="cta-button text-center">Empezar Ahora</a>
+                    <a href="saber_mas.html" class="secondary-button text-center">Saber Más</a>
+                </div>
+            </div>
+            <div class="illustration-column">
+                <!-- La imagen de fondo se define en CSS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características / ¿Qué Ofrecemos? -->
+    <section id="features" class="py-16 bg-white text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Simplifica tu Gestión de Nómina</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                Descubre cómo TuNomina transforma la administración de tus recursos humanos con herramientas poderosas y
+                fáciles de usar.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Característica 1 -->
+                <div
+                    class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-robot text-indigo-600 text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Nómina Automatizada</h3>
+                    <p class="text-gray-600">Calcula salarios, deducciones y aportes con precisión y sin errores,
+                        liberando tu tiempo.</p>
+                </div>
+
+                <!-- Característica 3 -->
+                <div
+                    class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-users-cog text-purple-600 text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Gestión de Empleados</h3>
+                    <p class="text-gray-600">Centraliza la información de tu personal y accede a ella fácilmente cuando
+                        la necesites.</p>
+                </div>
+
+                <!-- Característica 4 -->
+                <div
+                    class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <i class="fas fa-headset text-red-600 text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Soporte Dedicado</h3>
+                    <p class="text-gray-600">Nuestro equipo está listo para ayudarte con cualquier duda o asistencia que
+                        necesites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <!-- Nueva Sección: Cómo Funciona -->
+    <section id="how-it-works" class="py-16 bg-gray-50 text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-6">¿Cómo funciona TuNomina?</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                Descubre la simplicidad de gestionar tu nómina en solo unos pocos pasos.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Paso 1 -->
+                <div
+                    class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-shadow duration-300 hover:shadow-lg">
+                    <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+                        <i class="fas fa-user-plus text-indigo-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">1. Registra tus Empleados</h3>
+                    <p class="text-gray-600 text-center">Carga fácilmente la información de tu personal y sus datos
+                        laborales.</p>
+                </div>
+                <!-- Paso 2 -->
+                <div
+                    class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-shadow duration-300 hover:shadow-lg">
+                    <div class="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                        <i class="fas fa-calculator text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">2. Procesa la Nómina</h3>
+                    <p class="text-gray-600 text-center">Con un clic, calcula salarios, deducciones y prestaciones de
+                        forma automática.</p>
+                </div>
+                <!-- Paso 3 -->
+                <div
+                    class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition-shadow duration-300 hover:shadow-lg">
+                    <div class="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+                        <i class="fas fa-chart-bar text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">3. Analiza y Reporta</h3>
+                    <p class="text-gray-600 text-center">Accede a informes detallados y gráficos para una visión
+                        completa de tus finanzas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+
+
+    <!-- Nueva Sección: Contacto -->
+    <section id="contact-us" class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Contáctanos</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                ¿Tienes preguntas o necesitas asistencia? Estamos aquí para ayudarte.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Formulario de Contacto (Placeholder) -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-left">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Envíanos un Mensaje</h3>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                            <input type="text" id="name" name="name"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-3"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Correo
+                                Electrónico</label>
+                            <input type="email" id="email" name="email"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-3"
+                                placeholder="ejemplo@dominio.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-3"
+                                placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button w-full flex items-center justify-center">
+                            Enviar Mensaje
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Información de Contacto Directa -->
+                <div
+                    class="flex flex-col items-center lg:items-start text-left space-y-8 p-6 rounded-xl bg-indigo-50 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Información de Contacto</h3>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-envelope text-indigo-600 text-3xl"></i>
+                        <div>
+                            <p class="text-gray-700 font-semibold">Correo Electrónico</p>
+                            <p class="text-indigo-600">info@tunomina.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-phone-alt text-indigo-600 text-3xl"></i>
+                        <div>
+                            <p class="text-gray-700 font-semibold">Teléfono</p>
+                            <p class="text-indigo-600">+57 1 234 5678</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-map-marker-alt text-indigo-600 text-3xl"></i>
+                        <div>
+                            <p class="text-gray-700 font-semibold">Dirección</p>
+                            <p class="text-gray-600">Calle 123 #45-67, Soacha, Cundinamarca, Colombia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+
+    <!-- Sección de Llamada a la Acción Final -->
+    <section class="py-16 bg-indigo-700 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold mb-4">¿Listo para transformar tu nómina?</h2>
+            <p class="text-xl mb-8">Únete a cientos de empresas que ya confían en TuNomina para simplificar su gestión.
+            </p>
+            <a href="registro.html"
+                class="cta-button text-lg inline-flex items-center justify-center px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                ¡Empieza Gratis Hoy!
+                <i class="fas fa-arrow-right ml-3"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="img/icon.svg" alt="Logo Tu Nómina" class="h-20 mb-4">
+                    <p class="text-sm">TuNomina te ayuda a simplificar la gestión de nóminas y empleados para tu
+                        empresa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegación</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="nomina.html" class="hover:text-white transition-colors duration-200">Procesamiento
+                                de Nómina</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Beneficios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Informes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-envelope mr-2"></i> info@tunomina.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +57 1 234 5678</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Calle 123 #45-67, Soacha, Cundinamarca, Colombia
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                &copy; 2025 TuNomina. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript/index.js"></script>
+</body>
+
+</html>

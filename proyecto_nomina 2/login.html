@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Nómina - Iniciar Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <nav class="navbar flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="img/icon01.jpeg" alt="Logo Tu Nómina" class="h-20">
+        </div>
+        <div class="navbar-links hidden md:flex items-center space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-gray-900 font-medium">Inicio</a>
+            <a href="login.html" class="text-indigo-600 hover:text-indigo-800 font-medium">Iniciar Sesión</a>
+            <a href="registro.html" class="cta-button">Empezar Ahora</a>
+        </div>
+        <div class="md:hidden navbar-mobile-menu">
+            <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="main-content-wrapper">
+        <div class="main-container">
+            <div class="login-column">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Bienvenido de nuevo</h1>
+                <p class="text-gray-600 mb-8">Por favor, introduce tus datos</p>
+
+                <div id="message-box" class="hidden p-4 mb-4 text-sm rounded-lg w-full text-left" role="alert"></div>
+
+                <form id="loginForm" class="w-full">
+                    <div class="mb-5 text-left">
+                        <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Correo
+                            Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@ejemplo.com" required
+                            class="input-field focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <div class="mb-6 password-input-wrapper text-left">
+                        <label for="password" class="block text-gray-700 text-sm font-medium mb-2">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            class="input-field focus:ring-indigo-500 focus:border-indigo-500 pr-10">
+                        <span class="password-toggle" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-6 w-full">
+                        <div class="flex items-center">
+                            <input id="remember_me" name="remember_me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember_me" class="ml-2 block text-sm text-gray-900">Recordarme por 30
+                                días</label>
+                        </div>
+                        <a href="#" class="text-sm link-text">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="login-button w-full text-center flex items-center justify-center mb-4"
+                        id="submitButton">
+                        Acceder
+                    </button>
+
+
+                </form>
+
+                <div class="mt-8 text-center text-gray-600 text-sm w-full">
+                    ¿No tienes una cuenta?
+                    <a href="registro.html" class="link-text font-medium">Regístrate aquí</a>
+                </div>
+
+                <div id="gemini-feature-container" class="hidden text-center mt-6 w-full">
+                    <button id="getTipButton" class="gemini-button flex items-center justify-center mx-auto">
+                        ✨ Obtener Consejo del Día ✨
+                    </button>
+                    <div id="dailyTip" class="tip-box hidden text-left"></div>
+                </div>
+            </div>
+
+            <div class="illustration-column">
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascript/login.js"></script>
+
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="img/icon.svg" alt="Logo Tu Nómina" class="h-20 mb-4">
+                    <p class="text-sm">TuNomina te ayuda a simplificar la gestión de nóminas y empleados para tu
+                        empresa.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegación</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="nomina.html" class="hover:text-white transition-colors duration-200">Procesamiento
+                                de Nómina</a></li>
+                        <li><a href="login.html" class="hover:text-white transition-colors duration-200">Iniciar
+                                Sesión</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Beneficios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Informes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-envelope mr-2"></i> info@tunomina.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +57 1 234 5678</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Calle 123 #45-67, Soacha, Cundinamarca, Colombia
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                &copy; 2025 TuNomina. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="javascript/login.js"></script>
+</html>

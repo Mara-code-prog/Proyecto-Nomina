@@ -1,0 +1,292 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f0f2f5;
+  /* Un fondo claro general */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Asegura que los elementos se apilen verticalmente */
+  margin: 0;
+  padding: 0;
+  /* Eliminar padding del body para evitar espacios no deseados */
+  box-sizing: border-box;
+}
+
+/* Estilos de la barra de navegación (Header) */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  /* Borde inferior sutil */
+  padding: 1rem 2rem;
+}
+
+.cta-button {
+  /* Botón principal de acción en la navbar */
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  /* Degradado morado */
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.secondary-button {
+  /* Botón secundario en la navbar (si aplica, aunque no en este header) */
+  background-color: transparent;
+  color: #6366f1;
+  border: 1px solid #6366f1;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.secondary-button:hover {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* Responsive adjustments for navbar */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+    /* Oculta los enlaces de navegación en móvil */
+  }
+
+  .navbar-mobile-menu {
+    display: flex;
+    /* Muestra el icono de menú en móvil */
+  }
+}
+
+/* Nuevo contenedor para el contenido principal (entre header y footer) */
+.main-content-wrapper {
+  flex-grow: 1;
+  /* Permite que este contenedor ocupe todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra el contenido principal verticalmente */
+  align-items: center;
+  /* Centra el contenido principal horizontalmente */
+  padding: 20px;
+  /* Añadir padding aquí en lugar del body */
+}
+
+/* Contenedor principal del formulario y resumen */
+.main-processing-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  /* Ancho máximo para el diseño de dos columnas */
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  /* Asegura que los bordes redondeados se apliquen a todo */
+  min-height: 700px;
+  /* Altura mínima para el contenedor */
+  background-color: #ffffff;
+  /* Fondo blanco para el contenedor principal */
+}
+
+/* Columna del formulario */
+.form-column {
+  flex: 1;
+  /* Ocupa el 50% del ancho */
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Alinear contenido arriba */
+  align-items: center;
+  text-align: center;
+}
+
+/* Columna del resumen de nómina */
+.summary-column {
+  flex: 1;
+  /* Ocupa el 50% del ancho */
+  background: linear-gradient(135deg, #e0f2fe 0%, #cceeff 100%);
+  /* Degradado azul claro */
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Alinear contenido arriba */
+  align-items: center;
+  text-align: center;
+}
+
+/* Media Queries para responsividad (diseño adaptable a diferentes pantallas) */
+@media (max-width: 900px) {
+  .main-processing-container {
+    flex-direction: column;
+    /* Apila las columnas en pantallas pequeñas */
+    min-height: unset;
+    max-width: 500px;
+    /* Ancho máximo para el formulario apilado */
+  }
+
+  .summary-column {
+    order: -1;
+    /* Mueve el resumen arriba en móvil */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    padding-bottom: 1.5rem;
+    /* Menos padding inferior en móvil */
+  }
+
+  .form-column {
+    padding: 2rem;
+    /* Menos padding en móviles */
+  }
+}
+
+/* Estilos para campos de entrada y selección */
+.input-field,
+.select-field,
+.textarea-field {
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Animación suave al enfocar */
+}
+
+.input-field:focus,
+.select-field:focus,
+.textarea-field:focus {
+  outline: none;
+  border-color: #6366f1;
+  /* Borde azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  /* Sombra suave al enfocar */
+}
+
+/* Estilos para el botón de procesamiento */
+.process-button {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  /* Degradado verde */
+  color: white;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.process-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  /* Efecto de "levantar" al pasar el mouse */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.process-button:disabled {
+  opacity: 0.7;
+  /* Menor opacidad cuando está deshabilitado */
+  cursor: not-allowed;
+}
+
+/* Estilos para el spinner de carga */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  /* Animación de giro */
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para el botón de Gemini */
+.gemini-button {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  /* Degradado morado */
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 1.5rem;
+}
+
+.gemini-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.gemini-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Estilos para la caja de consejos */
+.tip-box {
+  background-color: rgba(243, 244, 246, 0.8);
+  border-left: 4px solid #6366f1;
+  /* Borde izquierdo morado */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #1f2937;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Estilos para la tarjeta de resumen */
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.summary-card p {
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.summary-card strong {
+  color: #1f2937;
+}
