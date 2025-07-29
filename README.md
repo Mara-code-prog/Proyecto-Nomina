@@ -7,7 +7,6 @@ Este es un sistema de gestión de nómina desarrollado como parte de mi formaci�
 - Python (Flask)
 - HTML y CSS
 - JavaScript
-- Bootstrap
 - CSV (para almacenar datos)
 
 ## ⚙️ Funcionalidades
